@@ -1,0 +1,12 @@
+{
+  "name": "gif-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "",
+  "license": "ISC"
+}

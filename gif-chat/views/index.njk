@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>F12를 눌러 console 탭과 network 탭을 확인하세요.</div>
+    <script src="/socket.io/socket.io.js"></script>
+  </body>
+  <script>
+    {# const websocket = new WebSocket('ws://localhost:8005');
+    websocket.onopen = () => {
+      console.log('서버와 웹 소켓 연결 성공');
+    };
+    websocket.onmessage = (event) => {
+      console.log(event.data);
+      websocket.send('클라이언트에서 서버로 답장을 보냅니다.')
+    } #}
+    const socket = io.connect("http://localhost:8005", {
+      path: '/socket.io',
+      transports: ['websocket'],  
+    });
+    socket.on('news', function (data) {
+      console.log(data);
+      socket.emit('reply', 'Hello Node JS');
+    })
+  </script>
+</html>
